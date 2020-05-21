@@ -1,0 +1,19 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.
+# Line up the first '|' above the ':' following the base package name, and
+# the '|' on the right side marks the last column you can put a character in.
+# You must make exactly 11 lines for the formatting to be correct.  It's also
+# customary to leave one space after the ':' except on otherwise blank lines.
+
+                |-----handy-ruler------------------------------------------------------|
+tutanota-desktop: tutanota-desktop (desktop client for Tutanota secure email service)
+tutanota-desktop:
+tutanota-desktop: Tutanota is the world’s first end-to-end encrypted email service
+tutanota-desktop: that encrypts the entire mailbox, including the address book.
+tutanota-desktop: With its unique open source technology Tutanota fights for privacy
+tutanota-desktop: and freedom of speech online, allowing everybody to send encrypted
+tutanota-desktop: emails on desktop and mobile.
+tutanota-desktop: 
+tutanota-desktop: For more details:
+tutanota-desktop: https://tutanota.com
+tutanota-desktop:

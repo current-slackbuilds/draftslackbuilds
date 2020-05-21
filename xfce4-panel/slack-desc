@@ -1,0 +1,19 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.
+# Line up the first '|' above the ':' following the base package name, and
+# the '|' on the right side marks the last column you can put a character in.
+# You must make exactly 11 lines for the formatting to be correct.  It's also
+# customary to leave one space after the ':' except on otherwise blank lines.
+
+           |-----handy-ruler------------------------------------------------------|
+xfce4-panel: xfce4-panel (panel for Xfce)
+xfce4-panel:
+xfce4-panel: The Xfce panel is part of the Xfce Desktop Environment and features
+xfce4-panel: program launchers, panel menus, a clock, a desktop switcher,
+xfce4-panel: and more. Many aspects of the panel can be configured through
+xfce4-panel: graphical dialogs, but also by GTK+ style properties and
+xfce4-panel: Xfconf settings.
+xfce4-panel:
+xfce4-panel:
+xfce4-panel:
+xfce4-panel:

@@ -1,0 +1,6 @@
+libpeas
+
+libpeas is a gobject-based plugins engine, and is targetted at giving every
+application the chance to assume its own extensibility.
+
+https://wiki.gnome.org/Projects/Libpeas

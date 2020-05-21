@@ -1,0 +1,7 @@
+xfce4-notifyd
+
+Xfce4-notifyd is a simple, visually-appealing notification daemon for Xfce.
+Applications can use xfce4-notifyd to pop up a notification bubble by sending
+messages through D-Bus.
+
+https://xfce.org

@@ -1,0 +1,6 @@
+libxfce4ui
+
+This is libxfce4ui, the replacement of the old libxfcegui4 library. It is used
+to share commonly used Xfce widgets among the Xfce applications.
+
+https://xfce.org

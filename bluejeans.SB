@@ -1,0 +1,103 @@
+#!/bin/sh -eu
+
+#{{{ APP-DEFS
+PRGNAM=bluejeans
+VERSION=${VERSION:-2.2.0}
+BUILD=${BUILD:-1}
+TAG=${TAG:-_SB}
+
+if [ -z "${ARCH:-}" ]; then
+  case "$(uname -m)" in
+    i?86) ARCH=i586 ;;
+    arm*) ARCH=arm ;;
+       *) ARCH=$(uname -m) ;;
+  esac
+fi
+#}}}
+
+#{{{ PKG-DEFS
+DLURL="https://swdl.bluejeans.com/desktop-app/linux/2.2.0/BlueJeans.rpm"
+SRCNAM=$(basename $(echo $DLURL | rev | cut -f1 -d/ | rev) .rpm)
+EXECNAM=bluejeans-v2
+
+CWD=$(pwd)
+TMP=${TMP:-/tmp/SB}
+PKG=$TMP/package-$PRGNAM
+OUTPUT=${OUTPUT:-/tmp}
+
+if [ "$ARCH" != "x86_64" ]; then
+  echo "$ARCH is not supported for $PRGNAM-$VERSION"
+  exit 1
+fi
+#}}}
+
+#{{{ SRC-PREP
+rm -rf $PKG
+mkdir -p $TMP $PKG $OUTPUT
+cd $PKG
+wget $DLURL
+rpm2cpio $SRCNAM.rpm | cpio -idmv
+rm -f $SRCNAM.rpm
+
+chown -R root:root .
+find -L \
+  \( -perm 777 -o -perm 775 -o -perm 750 -o -perm 711 -o -perm 555 \
+    -o -perm 511 \) -exec chmod 755 {} \; -o \
+  \( -perm 666 -o -perm 664 -o -perm 640 -o -perm 600 -o -perm 444 \
+    -o -perm 440 -o -perm 400 \) -exec chmod 644 {} \;
+#}}}
+
+#{{{ CLEANUP
+find -print0 | xargs -0 file | grep -e "executable" -e "shared object" | grep ELF \
+  | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
+#}}}
+
+#{{{ SETUP
+mkdir -p $PKG/usr/bin
+ln -s ../../opt/$SRCNAM/$EXECNAM usr/bin/$PRGNAM
+
+sed -i \
+  's#Categories=AudioVideo;#Categories=Network;InstantMessaging;#' \
+  $PKG/usr/share/applications/bluejeans-v2.desktop
+#}}}
+
+#{{{ DOCS
+mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
+ln -s ../../../opt/$SRCNAM/LICENSE.electron.txt $PKG/usr/doc/$PRGNAM-$VERSION
+ln -s ../../../opt/$SRCNAM/LICENSES.chromium.html $PKG/usr/doc/$PRGNAM-$VERSION
+cat $CWD/$PRGNAM.SB > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SB
+#}}}
+
+#{{{ SLACK-DESC
+mkdir -p $PKG/install
+cat > $PKG/install/slack-desc <<EOF
+         |----------------------------------------------------------------------|
+bluejeans: bluejeans (audio/video conferencing software)
+bluejeans:
+bluejeans: https://www.bluejeans.com
+bluejeans:
+bluejeans:
+bluejeans:
+bluejeans:
+bluejeans:
+bluejeans:
+bluejeans:
+bluejeans:
+EOF
+#}}}
+
+#{{{ DOINST
+cat > $PKG/install/doinst.sh <<EOF
+if [ -x /usr/bin/update-desktop-database ]; then
+  /usr/bin/update-desktop-database -q usr/share/applications >/dev/null 2>&1
+fi
+
+if [ -e usr/share/icons/hicolor/icon-theme.cache ]; then
+  if [ -x /usr/bin/gtk-update-icon-cache ]; then
+    /usr/bin/gtk-update-icon-cache -f usr/share/icons/hicolor >/dev/null 2>&1
+  fi
+fi
+EOF
+#}}}
+
+/sbin/makepkg -p -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.${PKGTYPE:-tgz}

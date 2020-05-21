@@ -1,0 +1,12 @@
+              |----------------------------------------------------------------------|
+imlib2_loaders: imlib2_loaders (additional image loaders for imlib2)
+imlib2_loaders:
+imlib2_loaders: Additional image loaders for imlib2 that are not distributed together
+imlib2_loaders: with the imlib2 package itself
+imlib2_loaders:
+imlib2_loaders: https://sourceforge.net/projects/enlightenment
+imlib2_loaders:
+imlib2_loaders:
+imlib2_loaders:
+imlib2_loaders:
+imlib2_loaders:

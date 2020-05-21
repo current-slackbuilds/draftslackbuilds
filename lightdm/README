@@ -1,0 +1,21 @@
+lightdm (cross-desktop display manager)
+
+LightDM is a cross-desktop display manager that:
+ - Runs display servers (e.g. X) where necessary.
+ - Runs greeters to allow users to pick which user account and session type to use.
+ - Allows greeters to perform authentication using PAM.
+ - Runs session processes once authentication is complete.
+ - Provides remote graphical login options.
+
+You need to create a dedicated user and group to take control of the lightdm daemon after it is started.
+groupadd lightdm
+useradd -c 'LightDM Daemon' \
+        -g lightdm \
+        -d /var/lib/lightdm \
+        -s /bin/false lightdm
+
+To activate LightDM, add these lines to /etc/rc.d/rc.4
+
+if [ -x /usr/sbin/lightdm ]; then
+  exec /usr/sbin/lightdm
+fi

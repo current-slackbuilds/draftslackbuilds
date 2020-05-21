@@ -1,0 +1,7 @@
+xfce4-settings
+
+xfce4-settings is the Xfce settings manager front-end. It comes with several
+different components for configuring application-independent settings inside
+xfconf.
+
+https://xfce.org

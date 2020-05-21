@@ -1,0 +1,15 @@
+Tutanota is the world’s first end-to-end encrypted email service that encrypts
+the entire mailbox, including the address book. With its unique open source
+technology Tutanota fights for privacy and freedom of speech online, allowing
+everybody including NGOs, journalists and activists to send encrypted
+emails on desktop and mobile.
+
+ * Published a brand-new client that comes with great speed, a nice design,
+and enables secure search on encrypted data.
+ * Published the Android app on F-Droid to offer a Google-free
+open source email service.
+ * Built dedicated desktop clients for Windows, Linux and Mac OS.
+ * Added a secure password reset via a recovery code.
+ * Tutanota is a GDPR compliant email service since May 2018.
+
+This script repackages AppImage.

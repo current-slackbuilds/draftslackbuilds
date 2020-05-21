@@ -1,0 +1,4 @@
+lightdm-gtk-greeter (A GTK+ greeter for LightDM)
+
+A GTK+ greeter for LightDM. There are several alternative greeters,
+but the GTK+ package is the reference implementation.
